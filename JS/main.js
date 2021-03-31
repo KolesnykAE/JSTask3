@@ -102,7 +102,7 @@ let users = [{
     status: true,
     address: { city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45 }
 }];
-    //
+
     // for (let i = 0; i < users.length; i++) {
     //     let user = users[i];
     //     let userInfo = document.createElement('div');
@@ -121,22 +121,15 @@ let users = [{
     for (let i = 0; i < users.length; i++) {
         let item = users[i];
         let user = document.createElement('div');
-        user.innerHTML = `name ${item.name} - age ${item.age} - status ${item.status}`
-        // let address = document.createElement("div");
+        let address = document.createElement("div");
 
-
-
-        // for (const addrElement of user.address) {
-        //     let Addr = addrElement;
-        //     let address = document.createElement("div");
-        //     // address.innerHTML =
-        // }
-        for (const userKey in item.address.length) {
-            let address = document.createElement("div");
-            document.body.appendChild(address)
+        for (const addrElement in item.address) {
+            let userAd = document.createElement("p");
+            userAd.innerHTML = item.address[addrElement];
+            address.appendChild(userAd);
         }
-        document.body.appendChild(user);    //
+
+        user.innerText = `name ${item.name} - age ${item.age} - status ${item.status}`
+        user.appendChild(address);
+        document.body.appendChild(user);
     }
-
-
-
